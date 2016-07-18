@@ -1,0 +1,42 @@
+<img src="images/header.png" alt="muffet">
+
+<div class="header clearfix">
+    <nav>
+    <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="active"><a href="/#/">Home</a></li>
+        <li role="presentation"><a href="/#/add-brew">Add</a></li>
+    </ul>
+    </nav>
+</div>
+
+<div class="jumbotron">
+    <p><i>Don't look so blue, my deary~ ...I think purple is a better look on you! Ahuhuhu~</i></p>
+</div>
+
+<!-- Only show table when there is brew data available -->
+<div ng-show="brews.length">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Bean</th>
+                <th>Dose</th>
+                <th>BW</th>
+                <th>Grind</th>
+                <th>TDS</th>
+                <th>Extraction</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="brew in brews">
+                <td><a href="/#/brew/{{brew._id}}">{{brew.date}}</a></td>
+                <td>{{brew.bean}}</td>
+                <td>{{brew.dose}}g</td>
+                <td>{{brew.bw}}g</td>
+                <td>{{brew.grind}}</td>
+                <td>{{brew.tds}}</td>
+                <td>{{brew.extraction}}%</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
