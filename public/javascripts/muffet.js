@@ -26,6 +26,13 @@ app.controller('HomeCtrl', ['$scope', '$resource',
 
         // $resource.query() = REST {method:'GET', isArray:true}
         brews.query(function(brews) {
+            brews.forEach(function(brew) {
+                brew.date = new Date(brew.date).toLocaleDateString('en-US', {
+                    month : 'short',
+                    day : 'numeric',
+                    year : 'numeric'
+                });
+            });
             $scope.brews = brews;
         });
 }]);
@@ -38,7 +45,7 @@ app.controller('AddBrewCtrl', ['$scope', '$resource', '$location',
                 day : 'numeric',
                 year : 'numeric'
             }),
-            bean:"Geisha",
+            bean:'Geisha',
             dose:12.0,
             bw:175.0,
             tds:0,

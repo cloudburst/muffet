@@ -17,7 +17,7 @@ db.once('open', function() {
 });
 
 var brew_schema = mongoose.Schema({
-    date: String,
+    date: Date,
     bean: String,
     dose: Number,
     bw: Number,
